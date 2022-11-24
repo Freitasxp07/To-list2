@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        <title>Cadastrar</title>
+
+        <style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url(img/fundoo.jpg);
+        background-size: 100% 100%;  
+        font-family: Arial, Helvetica, sans-serif;    
+       
+    
+        }
+    
+    form {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        max-width: 400px;
+        padding: 40px 20px 20px;  
+        background:  #cacbf6;
+        border-radius: 30px;
+        box-shadow: 0px 0px 20px black;
+        margin-top: 80px;
+        margin-bottom: 80px;
+       
+    }
+    
+    h2 {
+        font-size: 2rem;
+        width: 100%;
+        text-align: center;
+        font-weight: 900;
+        color: black;
+    }
+    
+    input {
+        width: 95%;
+        height: 60px;
+        border-radius: 5px;
+        border: 1px solid rgb(94, 94, 94);
+        margin-bottom: 15px;
+        margin-left: 5%;
+        padding-left: 20%;
+    }
+    
+    input:focus {
+        outline-color: #000000;
+        border: 5px;
+
+    }
+    
+    button{
+        width: 30%;
+        
+        padding: 20px;
+        margin: 20px 0px 20px 0px;
+        cursor: pointer;
+        background-color: #ecabca;
+        border-radius: 10%;
+        color: black;
+        font-size: 12px;
+        font-weight: bold;
+        border: none;
+        transition: 0.5s ease;
+        text-align: center ;
+    }
+    
+    button:hover{
+        background-color:#f9f3dd;
+        transition: 0.1s;
+        border: 1px solid black;
+        
+    }
+    #addc{
+        margin-left: 35%;
+     
+    }
+    
+    a {
+        text-decoration: none;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        color: white;
+    }
+    
+    a:hover {
+        color: #00c3ff;
+    }
+    
+    .link {
+        color: #00c3ff;
+        text-decoration: underline;
+    }
+    
+    .input-group {
+        width: 90%;
+    }
+    
+    .input-icon {
+        width: 60px;
+        position: absolute;
+    }
+    
+    input[type='checkbox'] {
+        display: inline-block;
+        height: 20px;
+        width: 5%;
+        vertical-align: middle;
+    }
+    
+    label {
+        display: inline-block;
+        width: 85%;
+        font-size: 13px;
+        margin-top: 15px;
+        cursor: pointer;
+        word-wrap: break-word;
+    }
+
+    .span-required{
+        display: none;
+        color: #e63636;
+        font-size: 15px;
+        margin-bottom: 6px ;
+        margin-left: 25px;
+
+    }
+    .sucesso{
+       display: none;
+    }
+    .erro{
+        display: none;
+        position: absolute;
+    
+    }
+    #caixa {   
+    align-items: center;
+    display: none;
+    max-width: 400px;
+    padding: 40px 20px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px #000000;
+    background-color: #cacbf6 ; 
+    margin-top: 3%;
+    margin-bottom: 3%;
+    animation: caixa 3s;
+    }
+    @keyframes caixa {
+            from {
+              transform: translateX(-100px);
+            }
+            to {
+              transform: translateX(0);
+            }
+          }
+
+   
+    
+    p  {
+     font-family:Geneva, Tahoma, sans-serif;
+     font-size: 15px;    
+     margin-bottom: 15px;
+     text-align: center;
+     
+     }
+    #caixa input{
+    height: 10%; 
+    font-family: arial;
+    border-radius: 10%;
+}
+.input-icon2 {
+    width: 60px;
+    margin-left: 42%;
+    margin-right: 50%;
+    
+    
+}
+.itens{
+    display: block;
+    justify-content: space-around;
+    
+}
+.okay {
+    width: 25px;
+    height: 25px;
+}
+   </style>
+  
+    </head>
+    <body>
+
+        
+       <form id="divinha">
+            <h2>Cadastrar </h2>
+            
+            <div class="input-group ">
+                <img class="input-icon" src="img/user.png">
+                <input type="text" placeholder="Nome Completo" class="inputs required" oninput="nameValidate()">
+                <img class="sucesso" src="./img/success-icon.svg" >
+                <img class="erro" src="./img/error-icon.svg" >
+                <span class="span-required"> O Nome deve ter no mínimo 8 caracteres</span>
+                
+            </div>
+
+            <div class="input-group ">
+                <img class="input-icon" src="img/log.png">
+                <input type="text" placeholder="Insira um nome de usuário" class="inputs required" oninput="userValidate()">
+                <img class="sucesso" src="./img/success-icon.svg" >
+                <img class="erro" src="./img/error-icon.svg" >
+                <span class="span-required" >O Nome de usuário deve ter no mínimo 5 caracteres</span>
+            </div>
+
+            <div class="input-group">
+                <img class="input-icon" src="img/emaiil.png">
+                <input type="email" placeholder="Seu melhor email" class="inputs required" oninput="emailValidate()">
+                <img class="sucesso" src="./img/success-icon.svg" >
+                <img class="erro" src="./img/error-icon.svg" >
+                <span class="span-required"> Insira um e-mail válido</span>
+
+            </div>
+
+            <div class="input-group">
+                <img class="input-icon" src="img/lock.png">
+                <input type="password" placeholder="Senha mínimo 6 Dígitos" class="inputs required" oninput="senhaValidate()">
+                <img class="sucesso" src="./img/success-icon.svg" >
+                <img class="erro" src="./img/error-icon.svg" >
+                <span class="span-required"> Crie uma senha com no mínino 8 caracteres</span>
+            </div>
+
+            <div class="input-group">
+                <img class="input-icon" src="img/lock.png">
+                <input type="password" placeholder="Confirme sua senha" class="inputs required" oninput=" compareSenhas()">
+                <img class="sucesso" src="./img/success-icon.svg" >
+                <img class="erro" src="./img/error-icon.svg" >
+                <span class="span-required">As senhas não são compatives</span>
+            </div>
+            <button type="button" onclick="removeDiv()">Cadastrar</button>
+
+             
+            
+        </form>
+
+        <div id="caixa">
+            
+         
+            <img class="input-icon2" src="img/logo.png">
+            <br>
+            <p>Insira sua Tarefa:</p>
+            <input id="texto" placeholder="Ex.: Lavar roupa">
+            <button id="addc" onclick="adicionar();" >Adicionar</button>
+         
+            <div id="tarefas">      
+            </div>
+        
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        
+
+      <script>
+            const form =document.getElementById("form");
+            const campos = document.querySelectorAll(".required");
+            const span = document.querySelectorAll(".span-required");
+            const invalido = document.querySelectorAll(".erro");
+            const valido = document.querySelectorAll(".sucesso");
+            const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+          
+
+
+            function setError(index){
+                campos[index].style.border = "4px solid #e63636";
+                span[index].style.display = "block";
+                invalido[index].style.display ="block";
+                valido[index].style.display ="none";
+                
+            }
+            function removeError(index){
+                campos[index].style.border =" 4px solid #006400";
+                span[index].style.display ="none";
+                valido[index].style.display ="block";
+                invalido[index].style.display ="none";
+                
+            }
+
+
+            
+            function nameValidate(){
+                if(campos[0].value.length < 8){
+                    
+                    setError(0)
+                    
+                }
+                else{
+                    removeError(0)
+                   
+                }
+            }
+            function userValidate(){
+                if(campos[1].value.length < 5){
+                    
+                    setError(1)
+                    
+                }
+                else{
+                    removeError(1)
+                   
+                }
+            }
+
+            function emailValidate(){
+                if(!emailRegex.test(campos[2].value)){
+                    setError(2)
+                   
+                }
+                else{
+                    removeError(2)
+                   
+                }
+            }
+
+            function senhaValidate(){
+                if(campos[3].value.length < 8){
+                    
+                    
+                    setError(3);
+                }
+                else{
+                    removeError(3);
+                  
+                }
+            }
+
+            function compareSenhas(){
+                if(campos[3].value !== campos[4].value){
+
+                    setError(4);
+                    
+                }
+                else{
+                    removeError(4); 
+                   
+                 
+                }
+
+                        }
+
+            function removeDiv(){
+                 document.getElementById("divinha").style.display = "none";
+                 document.getElementById("caixa").style.display = "block";
+        }
+        function adicionar()
+            {
+
+         var conteudo = document.getElementById('texto').value;
+             if(conteudo!="") {
+                var novoElemento = document.createTextNode(conteudo);
+                var divNova = document.createElement('div');
+                divNova.className="itens";
+                var botao = document.createElement('button');
+                var check = document.createElement('input');
+                check.setAttribute("type", "checkbox");
+                
+                var botaoEditar = document.createElement('button');
+                botaoEditar.innerHTML = "Editar";
+                botaoEditar.addEventListener("click",
+                function(){
+                    document.getElementById('texto').value = conteudo;
+                })
+                botao.innerHTML = "Remover";
+                botao.addEventListener("click",
+                function(){
+                    divNova.remove();
+                })
+
+                divNova.appendChild(check);
+                check.className="okay";}
+                check.addEventListener('change',function(){
+                    if(this.checked){
+                        divNova.style.textDecoration = "line-through";
+                    }else{
+                        divNova.style.textDecoration = "none";
+                    }
+                })
+
+                divNova.appendChild(novoElemento);
+                divNova.appendChild(botaoEditar);
+                divNova.appendChild(botao);
+                document.getElementById('tarefas').appendChild(divNova);
+                document.getElementById('texto').value = "";
+            }
+            </script>
+    </body>
+</html>
