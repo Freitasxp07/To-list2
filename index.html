@@ -197,6 +197,9 @@
     width: 25px;
     height: 25px;
 }
+#dados{
+    display: none;
+}
    </style>
   
     </head>
@@ -261,11 +264,16 @@
             <p>Insira sua Tarefa:</p>
             <input id="texto" placeholder="Ex.: Lavar roupa">
             <button id="addc" onclick="adicionar();" >Adicionar</button>
+            <button  id= "addc" onclick="removeList();"> Meus dados </button>
          
             <div id="tarefas">      
             </div>
         
         </div>
+        <div id="dados">
+            
+        </div>
+        
         <br>
         <br>
         <br>
@@ -364,6 +372,17 @@
                  document.getElementById("divinha").style.display = "none";
                  document.getElementById("caixa").style.display = "block";
         }
+
+            function removeList(){
+                document.getElementById("caixa").style.display = "none";
+                document.getElementById("dados").style.display = "block";
+                document.getElementById("dados").innerHTML="Nome: "+  document.getElementsByTagName("input")[0].value + "<br>" +
+                "User: "+  document.getElementsByTagName("input")[1].value + "<br>" +
+                "Email: "+  document.getElementsByTagName("input")[2].value;
+             
+        }
+            
+            
         function adicionar()
             {
 
